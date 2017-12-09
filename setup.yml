@@ -1,0 +1,17 @@
+
+# vagrant box
+box: debian/jessie64
+
+# Network Settings
+hostname: zend-cert.test
+ip: 192.168.31.10
+
+# Virtual Machine Settings
+memory: 1024
+cpus: 1
+
+synced_folder: project
+document_root: /var/www/html
+
+
+#PHP
