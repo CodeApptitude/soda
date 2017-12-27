@@ -1,2 +1,8 @@
+## PhpStorm
+.idea
+## Mac os
 .DS_Store
+## Vagrant
 .vagrant
+## Exclude content synced_folder
+project/*
