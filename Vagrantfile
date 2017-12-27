@@ -21,13 +21,16 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = _config['hostname']
   config.vm.network :private_network, ip: _config['ip']
 
-config.vm.synced_folder _config['synced_folder'],
+  config.vm.synced_folder _config['synced_folder'],
   _config['document_root'], :create => "true", :mount_options => ['dmode=755', 'fmode=644']
 
+  config.vm.provider :virtualbox do |vb|
+    vb.name   = _config['hostname']
+    vb.memory = _config['memory']
+    vb.cpus   = _config['cpus']
+  end
 
-config.vm.provision :ansible_local do |ansible|
-  ansible.playbook = "provision/playbook.yml"
-end
-
-
+  config.vm.provision :ansible_local do |ansible|
+    ansible.playbook = "provision/playbook.yml"
+  end
 end
